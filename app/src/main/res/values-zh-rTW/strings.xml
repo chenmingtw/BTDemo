@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">藍牙展示</string>
+    <string name="btn_turn_on">打開藍牙</string>
+    <string name="btn_turn_off">關閉藍牙</string>
+    <string name="btn_paired_devices">查詢已配對裝置</string>
+    <string name="btn_search">搜尋裝置</string>
+    <string name="btn_discoverable">啟動被搜尋狀態</string>
+    <string name="menu_log_clear">清除 log</string>
+    <string name="menu_server">變成服務端</string>
+    <string name="menu_client">變成客戶端</string>
+
+    <string name="dialog_not_support_bt">此裝置不支援藍牙！</string>
+    <string name="dialog_please_turn_on">請打開您的藍牙</string>
+    <string name="dialog_quit">退出</string>
+    <string name="dialog_ok">好</string>
+
+    <string name="log_bt_is_enabled">藍牙已啟動</string>
+    <string name="log_bt_is_disabled">藍牙已停用</string>
+    <string name="log_bt_has_been_enabled">藍牙已經啟動</string>
+    <string name="log_bt_enable_fail">啟動藍牙失敗</string>
+    <string name="log_bt_disable_fail">停用藍牙失敗</string>
+    <string name="log_paired_devices">已配對的裝置：</string>
+    <string name="log_no_device">無裝置</string>
+    <string name="log_search_start">開始搜尋</string>
+    <string name="log_search_end">搜尋完成</string>
+</resources>

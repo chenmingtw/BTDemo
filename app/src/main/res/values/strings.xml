@@ -1,0 +1,28 @@
+<resources>
+    <string name="app_name">BT Demo</string>
+    <string name="btn_turn_on">Turn on BT</string>
+    <string name="btn_turn_off">Turn off BT</string>
+    <string name="btn_paired_devices">Query paired devices</string>
+    <string name="btn_search">Discover devices</string>
+    <string name="btn_discoverable">Enable discoverability</string>
+    <string name="menu_log_clear">Clear log</string>
+    <string name="menu_server">Be Server</string>
+    <string name="menu_client">Be Client</string>
+
+    <string name="dialog_not_support_bt">This device isn\'t support Bluetooth!</string>
+    <string name="dialog_please_turn_on">Please turn on your Bluetooth.</string>
+    <string name="dialog_quit">Quit</string>
+    <string name="dialog_ok">OK</string>
+
+    <string name="log_divider" translatable="false">================</string>
+    <string name="log_bt_is_enabled">Bluetooth is enabled</string>
+    <string name="log_bt_is_disabled">Bluetooth is disabled</string>
+    <string name="log_bt_has_been_enabled">Bluetooth has been enabled</string>
+    <string name="log_bt_enable_fail">Fail to enable Bluetooth</string>
+    <string name="log_bt_disable_fail">Fail to disable Bluetooth</string>
+    <string name="log_paired_devices">Paired Devices:</string>
+    <string name="log_no_device">No device</string>
+    <string name="log_search_start">Start discovery</string>
+    <string name="log_search_end">Finish discovery</string>
+    <string name="log_device_name_address" translatable="false">%1$s (%2$s)</string>
+</resources>
