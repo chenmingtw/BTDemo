@@ -34,6 +34,9 @@ public class MainActivity extends AppCompatActivity {
     private static final int REQ_ENABLE_BT = 10;
     private static final int DISCOVERABLE_DURATION_SEC = 60;
 
+    // Use to display new log immediately.
+    private boolean keepBottom = true;
+
     private BluetoothAdapter btAdapter;
     private List<String> logs;
     private LogViewAdapter logViewAdapter;
@@ -140,6 +143,7 @@ public class MainActivity extends AppCompatActivity {
         logViewAdapter = new LogViewAdapter(this, logs);
         recyclerViewLog.setLayoutManager(new LinearLayoutManager(this));
         recyclerViewLog.setAdapter(logViewAdapter);
+        recyclerViewLog.addOnScrollListener(onScrollListener);
 
         btnOn.setOnClickListener(onBTOnClickListener);
         btnOff.setOnClickListener(onBTOffClickListener);
@@ -181,11 +185,19 @@ public class MainActivity extends AppCompatActivity {
     private void addLog(String log) {
         logs.add(log);
         logViewAdapter.notifyItemInserted(logViewAdapter.getItemCount());
+
+        if (keepBottom)
+            recyclerViewLog.scrollToPosition(logViewAdapter.getItemCount() - 1);
     }
 
     private void clearLog() {
         logs.clear();
         logViewAdapter.notifyDataSetChanged();
+    }
+
+    private void setKeepBottomEnabled(boolean enable) {
+        keepBottom = enable;
+        Log.i(TAG, "KeepBottom is " + keepBottom);
     }
 
     private void requestLocationPermission() {
@@ -255,6 +267,23 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             } else {
                 addLog(getString(R.string.dialog_please_turn_on));
+            }
+        }
+    };
+
+    private RecyclerView.OnScrollListener onScrollListener = new RecyclerView.OnScrollListener() {
+        @Override
+        public void onScrollStateChanged(@NonNull RecyclerView recyclerView, int newState) {
+            super.onScrollStateChanged(recyclerView, newState);
+            LinearLayoutManager layoutManager = (LinearLayoutManager) recyclerViewLog.getLayoutManager();
+            if (layoutManager != null) {
+                int lastPosition = layoutManager.findLastCompletelyVisibleItemPosition();
+                int itemCount = layoutManager.getItemCount();
+
+                if (lastPosition >= itemCount - 1)
+                    setKeepBottomEnabled(true);
+                else
+                    setKeepBottomEnabled(false);
             }
         }
     };
